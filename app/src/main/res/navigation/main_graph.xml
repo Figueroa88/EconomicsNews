@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.alejandro.economicsnews.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alejandro.economicsnews.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_economicListFragment"
+            app:destination="@id/economicListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/economicListFragment"
+        android:name="com.alejandro.economicsnews.ui.economicList.EconomicListFragment"
+        android:label="fragment_economic_list"
+        tools:layout="@layout/fragment_economic_list" >
+        <action
+            android:id="@+id/action_economicListFragment_to_economicDetailFragment"
+            app:destination="@id/economicDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
+    <fragment
+        android:id="@+id/economicDetailFragment"
+        android:name="com.alejandro.economicsnews.ui.economicDetail.EconomicDetailFragment"
+        android:label="fragment_economic_detail"
+        tools:layout="@layout/fragment_economic_detail" >
+        <argument
+            android:name="indicatorCode"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="indicatorName"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="indicatorUnit"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="indicatorDate"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="indicatorValue"
+            app:argType="float"
+            android:defaultValue="0.0" />
+    </fragment>
+</navigation>
